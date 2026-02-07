@@ -3,165 +3,218 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SDMTA SHIVAMOGGA | ದೈನಂದಿನ ಅಪ್‌ಡೇಟ್ಸ್</title>
+    <title>SDMTA SHIVAMOGGA | ಶಿವಮೊಗ್ಗ ಜಿಲ್ಲಾ ಮೊಬೈಲ್ ತಂತ್ರಜ್ಞರ ಸಂಘ</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap');
         body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
         .gradient-bg { background: linear-gradient(135deg, #0f172a 0%, #1e40af 100%); }
-        .post-card { 
-            background: white; 
-            border-radius: 1.5rem; 
-            overflow: hidden; 
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            margin-bottom: 1.5rem;
-            border: 1px solid #e2e8f0;
-            transition: transform 0.2s;
-        }
-        .post-card:hover { transform: translateY(-3px); }
+        .glass-header { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); position: sticky; top: 0; z-index: 100; border-bottom: 2px solid #f1f5f9; }
+        .photo-card { break-inside: avoid; transition: transform 0.3s ease; border-radius: 1.5rem; overflow: hidden; background: white; box-shadow: 0 4px 10px rgba(0,0,0,0.05); margin-bottom: 1.5rem; border: 1px solid #e2e8f0; }
+        .photo-card:hover { transform: translateY(-5px); }
         #postContainer { column-count: 1; column-gap: 1.5rem; }
-        @media (min-width: 768px) { #postContainer { column-count: 2; } }
+        @media (min-width: 640px) { #postContainer { column-count: 2; } }
         @media (min-width: 1024px) { #postContainer { column-count: 3; } }
-        .input-glass { background: rgba(255, 255, 255, 0.9); border: 2px solid #e2e8f0; outline: none; transition: all 0.3s; }
-        .input-glass:focus { border-color: #3b82f6; box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1); }
+        .punish-card { border-left: 5px solid #ef4444; }
     </style>
 </head>
-<body class="bg-slate-50">
+<body class="bg-slate-50 text-slate-900">
 
     <!-- Navbar -->
-    <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-bottom border-slate-200 shadow-sm">
+    <nav class="glass-header shadow-sm">
         <div class="max-w-7xl mx-auto px-4 h-20 flex justify-between items-center">
             <div class="flex items-center gap-3">
                 <img src="1000007001.jpg" alt="Logo" class="w-12 h-12 object-contain" onerror="this.src='https://via.placeholder.com/50'">
                 <div>
                     <h1 class="text-blue-900 font-black text-sm leading-tight">SDMTA SHIVAMOGGA</h1>
-                    <p class="text-[9px] text-orange-600 font-bold uppercase">Association Updates</p>
+                    <p class="text-[9px] text-orange-600 font-bold tracking-tighter uppercase">Technicians Association</p>
                 </div>
             </div>
-            <a href="index.html" class="bg-blue-900 text-white px-5 py-2 rounded-xl font-bold text-xs uppercase tracking-wider">Home</a>
+            <div class="hidden md:flex gap-6 text-xs font-black uppercase">
+                <a href="#home" class="hover:text-blue-700">Home</a>
+                <a href="#areas" class="hover:text-blue-700">Area Groups</a>
+                <a href="#gallery" class="hover:text-blue-700">Updates</a>
+                <a href="#rules" class="hover:text-blue-700">Rules</a>
+            </div>
+            <button onclick="toggleLang()" id="langBtn" class="bg-blue-900 text-white px-4 py-2 rounded-lg font-bold text-xs flex items-center gap-2">
+                <i class="fas fa-language"></i> ಕನ್ನಡ
+            </button>
         </div>
     </nav>
 
-    <!-- Upload Section -->
-    <section class="py-12 px-4 gradient-bg text-white">
-        <div class="max-w-2xl mx-auto text-center mb-10">
-            <h2 class="text-3xl font-black mb-2 uppercase">Add Daily Update</h2>
-            <p class="text-blue-200 font-medium">Aaj ki photo aur jaankari yahan add karein</p>
+    <!-- Hero -->
+    <header id="home" class="gradient-bg text-white py-16 px-4 text-center">
+        <div class="max-w-4xl mx-auto space-y-6">
+            <h2 id="heroTitle" class="text-3xl md:text-6xl font-black uppercase leading-tight">United for <span class="text-orange-500">Excellence</span></h2>
+            <p id="heroDesc" class="text-slate-300 text-lg">One Voice, One Rate, One Association for all Mobile Technicians.</p>
+            <div class="flex justify-center gap-4 pt-6">
+                <a href="#areas" class="bg-orange-600 px-8 py-4 rounded-2xl font-black shadow-lg">Find Your Group</a>
+                <a href="https://wa.me/918722786122" class="bg-white/10 px-8 py-4 rounded-2xl font-black border border-white/20">Join WhatsApp</a>
+            </div>
         </div>
+    </header>
 
-        <div class="max-w-xl mx-auto bg-white p-6 rounded-[2rem] shadow-2xl text-slate-800">
+    <!-- DAILY UPDATE UPLOAD SECTION (New Feature in Old Style) -->
+    <section id="upload" class="py-12 bg-white px-4 border-b border-slate-100">
+        <div class="max-w-xl mx-auto bg-slate-50 p-6 rounded-[2rem] border-2 border-dashed border-slate-200">
+            <h3 class="text-center font-black text-blue-900 mb-4 uppercase tracking-wider">Add Daily Photo & Info</h3>
             <div class="space-y-4">
-                <!-- Photo Input -->
-                <div class="relative">
-                    <input type="file" id="imageInput" accept="image/*" class="hidden" onchange="previewSelectedImage(event)">
-                    <button onclick="document.getElementById('imageInput').click()" class="w-full py-4 border-2 border-dashed border-slate-200 rounded-2xl text-slate-500 font-bold hover:bg-slate-50 transition flex flex-col items-center gap-2">
-                        <i class="fas fa-camera text-2xl text-blue-600"></i>
-                        <span id="uploadLabel">Select Workshop Photo</span>
-                    </button>
-                    <img id="preview" class="hidden w-full h-48 object-cover rounded-2xl mt-4 border border-slate-100">
-                </div>
-
-                <!-- Text Input -->
-                <div>
-                    <textarea id="descInput" rows="3" class="w-full p-4 input-glass rounded-2xl font-bold text-sm" placeholder="Aaj ka update likhiye... (e.g. Sagar Group Meeting completed)"></textarea>
-                </div>
-
-                <!-- Post Button -->
-                <button onclick="createPost()" class="w-full bg-blue-600 hover:bg-orange-600 text-white py-4 rounded-2xl font-black text-lg shadow-lg transition-all flex justify-center items-center gap-3">
-                    <i class="fas fa-paper-plane"></i> POST UPDATE
+                <input type="file" id="imageInput" accept="image/*" class="hidden" onchange="previewImg(event)">
+                <button onclick="document.getElementById('imageInput').click()" class="w-full py-4 bg-white border border-slate-200 rounded-xl font-bold text-slate-500 flex flex-col items-center gap-1 shadow-sm">
+                    <i class="fas fa-camera text-blue-600"></i>
+                    <span id="labelTxt">Select Photo</span>
                 </button>
+                <img id="preview" class="hidden w-full h-40 object-cover rounded-xl mt-2 border">
+                
+                <textarea id="descInput" rows="2" class="w-full p-4 rounded-xl border border-slate-200 font-bold text-sm outline-none focus:border-blue-500" placeholder="Write something about this photo..."></textarea>
+                
+                <button onclick="createPost()" class="w-full bg-blue-900 text-white py-4 rounded-xl font-black shadow-lg hover:bg-orange-600 transition">POST UPDATE</button>
             </div>
         </div>
     </section>
 
-    <!-- Post Feed -->
-    <section class="py-16 px-4">
-        <div class="max-w-7xl mx-auto">
-            <div class="flex items-center gap-4 mb-10">
-                <div class="h-1 bg-blue-900 flex-grow rounded-full"></div>
-                <h3 class="text-xl font-black text-blue-950 uppercase tracking-widest">Recent Activity</h3>
-                <div class="h-1 bg-blue-900 flex-grow rounded-full"></div>
+    <!-- AREA GROUPS SECTION -->
+    <section id="areas" class="py-20 px-4">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 id="areaTitle" class="text-3xl font-black text-blue-950 mb-8">Area Wise Groups</h2>
+            <div class="bg-white p-8 rounded-[2.5rem] shadow-xl border border-slate-100">
+                <select id="areaPicker" onchange="showAreaLeader()" class="w-full p-4 rounded-xl border-2 border-slate-100 font-black text-slate-700 outline-none">
+                    <option value="">-- Select Your Area / ಪ್ರದೇಶ ಆರಿಸಿ --</option>
+                    <option value="shimoga">Shimoga City Area</option>
+                    <option value="sagar">Sagar Area</option>
+                    <option value="bhadravathi">Bhadravathi Area</option>
+                </select>
+                <div id="leaderResult" class="mt-8 hidden bg-blue-50 p-6 rounded-2xl border border-blue-100 text-left">
+                    <h4 id="leaderName" class="text-xl font-black text-blue-900">Leader Name</h4>
+                    <a id="leaderPhone" href="#" class="mt-4 block w-full bg-blue-900 text-white py-3 rounded-xl text-center font-black">Call Leader</a>
+                </div>
             </div>
+        </div>
+    </section>
 
+    <!-- PHOTO FEED / UPDATES -->
+    <section id="gallery" class="py-20 bg-slate-100 px-4">
+        <div class="max-w-7xl mx-auto">
+            <h2 id="galleryTitle" class="text-3xl font-black text-blue-950 mb-10 text-center">Recent Updates</h2>
             <div id="postContainer">
-                <!-- Initial Sample Post -->
-                <div class="post-card">
-                    <img src="https://images.unsplash.com/photo-1512428559087-560fa5ceab42?auto=format&fit=crop&w=600&q=80" class="w-full h-auto">
-                    <div class="p-5">
-                        <div class="flex justify-between items-center mb-3">
-                            <span class="text-[10px] font-black bg-blue-100 text-blue-800 px-3 py-1 rounded-full uppercase">Sample Post</span>
-                            <span class="text-[10px] font-bold text-slate-400">Feb 07, 2026</span>
-                        </div>
-                        <p class="text-slate-700 font-bold leading-relaxed">Welcome to SDMTA Daily Update portal. Members can share their work progress here.</p>
+                <!-- Sample -->
+                <div class="photo-card">
+                    <img src="https://images.unsplash.com/photo-1512428559087-560fa5ceab42?auto=format&fit=crop&w=600&q=80" class="w-full">
+                    <div class="p-4">
+                        <p class="text-[10px] font-black text-orange-600 uppercase">Feb 07, 2026</p>
+                        <p class="text-sm font-bold text-slate-700">Welcome to SDMTA Official Updates Feed.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer class="py-10 text-center text-slate-400 text-[10px] font-black uppercase tracking-widest">
-        SDMTA Shivamogga Official Portal &copy; 2026
+    <!-- RULES -->
+    <section id="rules" class="py-20 bg-white px-4">
+        <div class="max-w-5xl mx-auto">
+            <h2 id="ruleTitle" class="text-3xl font-black text-blue-950 text-center mb-12">Discipline & Penalties</h2>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="punish-card bg-red-50 p-6 rounded-2xl">
+                    <h4 class="font-black text-red-800">1st Offense</h4>
+                    <p class="text-2xl font-black">₹ 5,000 Penalty</p>
+                </div>
+                <div class="punish-card bg-red-50 p-6 rounded-2xl">
+                    <h4 class="font-black text-red-800">2nd Offense</h4>
+                    <p class="text-2xl font-black">₹ 10,000 Penalty</p>
+                </div>
+                <div class="md:col-span-2 bg-red-950 p-8 rounded-2xl text-white text-center">
+                    <p id="finalAction" class="font-black text-xl uppercase">Final: Spare Parts Ban & Legal Action</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-blue-950 text-white py-12 px-4 text-center">
+        <h3 class="text-xl font-black">SDMTA SHIVAMOGGA</h3>
+        <p class="text-slate-400 font-bold mt-2">98459 60784 / 87227 86122</p>
     </footer>
 
     <script>
-        let selectedImageData = null;
+        let lang = 'en';
+        let selectedImg = null;
 
-        function previewSelectedImage(event) {
-            const file = event.target.files[0];
-            if (!file) return;
+        const areaData = {
+            'shimoga': { leader: 'SDMTA Admin Team', phone: '8722786122' },
+            'sagar': { leader: 'Sagar Unit Incharge', phone: '9845960784' },
+            'bhadravathi': { leader: 'Bhadravathi Unit Head', phone: '9844217331' }
+        };
 
-            const reader = new FileReader();
-            reader.onload = function(e) {
-                selectedImageData = e.target.result;
-                const previewImg = document.getElementById('preview');
-                previewImg.src = e.target.result;
-                previewImg.classList.remove('hidden');
-                document.getElementById('uploadLabel').innerText = "Image Selected ✅";
+        const texts = {
+            en: { 
+                heroTitle: "United for <span class='text-orange-500'>Excellence</span>", 
+                galleryTitle: "Recent Updates",
+                ruleTitle: "Discipline & Penalties",
+                finalAction: "Final: Spare Parts Ban & Legal Action"
+            },
+            kn: { 
+                heroTitle: "ವೃತ್ತಿಪರ <span class='text-orange-500'>ಶ್ರೇಷ್ಠತೆಗಾಗಿ</span> ಒಕ್ಕೂಟ",
+                galleryTitle: "ಇತ್ತೀಚಿನ ಅಪ್‌ಡೇಟ್ಸ್",
+                ruleTitle: "ಶಿಸ್ತು ಮತ್ತು ದಂಡನೆಗಳು",
+                finalAction: "ಹೋಲ್ ಸೆಲ್ಲರ್ಸ್ ಗಳಿಂದ ಸ್ಪೇರ್ ಪಾರ್ಟ್ಸ್ ಸ್ಥಗಿತ ಮತ್ತು ಕಾನೂನು ಕ್ರಮ"
             }
+        };
+
+        function toggleLang() {
+            lang = lang === 'en' ? 'kn' : 'en';
+            document.getElementById('langBtn').innerHTML = lang === 'en' ? '<i class="fas fa-language"></i> ಕನ್ನಡ' : '<i class="fas fa-language"></i> English';
+            document.getElementById('heroTitle').innerHTML = texts[lang].heroTitle;
+            document.getElementById('galleryTitle').innerText = texts[lang].galleryTitle;
+            document.getElementById('ruleTitle').innerText = texts[lang].ruleTitle;
+            document.getElementById('finalAction').innerText = texts[lang].finalAction;
+        }
+
+        function previewImg(e) {
+            const file = e.target.files[0];
+            if(!file) return;
+            const reader = new FileReader();
+            reader.onload = function(event) {
+                selectedImg = event.target.result;
+                document.getElementById('preview').src = selectedImg;
+                document.getElementById('preview').classList.remove('hidden');
+                document.getElementById('labelTxt').innerText = "Photo Ready ✅";
+            };
             reader.readAsDataURL(file);
         }
 
         function createPost() {
             const desc = document.getElementById('descInput').value;
-            const container = document.getElementById('postContainer');
-
-            if (!selectedImageData && !desc) {
-                alert("Please add a photo or write something!");
-                return;
-            }
-
-            const now = new Date();
-            const dateStr = now.toLocaleDateString('en-US', { month: 'short', day: '2-digit', year: 'numeric' });
-
+            if(!selectedImg && !desc) return alert("Photo ಅಥವಾ ವಿಷಯವನ್ನು ಸೇರಿಸಿ");
+            
             const postHTML = `
-                <div class="post-card animate-bounce-in">
-                    ${selectedImageData ? `<img src="${selectedImageData}" class="w-full h-auto">` : ''}
-                    <div class="p-5">
-                        <div class="flex justify-between items-center mb-3">
-                            <span class="text-[10px] font-black bg-orange-100 text-orange-700 px-3 py-1 rounded-full uppercase">Member Post</span>
-                            <span class="text-[10px] font-bold text-slate-400">${dateStr}</span>
-                        </div>
-                        <p class="text-slate-800 font-bold leading-relaxed">${desc || 'Daily work update.'}</p>
+                <div class="photo-card">
+                    ${selectedImg ? `<img src="${selectedImg}" class="w-full">` : ''}
+                    <div class="p-4">
+                        <p class="text-[10px] font-black text-blue-900 uppercase">${new Date().toLocaleDateString()}</p>
+                        <p class="text-sm font-bold text-slate-700">${desc || 'Daily Update'}</p>
                     </div>
                 </div>
             `;
-
-            // Naye post ko sabse upar add karna
-            container.insertAdjacentHTML('afterbegin', postHTML);
-
-            // Inputs clear karna
+            document.getElementById('postContainer').insertAdjacentHTML('afterbegin', postHTML);
+            
+            // Reset
             document.getElementById('descInput').value = '';
-            document.getElementById('imageInput').value = '';
             document.getElementById('preview').classList.add('hidden');
-            document.getElementById('uploadLabel').innerText = "Select Workshop Photo";
-            selectedImageData = null;
+            document.getElementById('labelTxt').innerText = "Select Photo";
+            selectedImg = null;
+        }
 
-            // Scroll to feed
-            window.scrollTo({ top: document.getElementById('postContainer').offsetTop - 100, behavior: 'smooth' });
+        function showAreaLeader() {
+            const val = document.getElementById('areaPicker').value;
+            const res = document.getElementById('leaderResult');
+            if(val && areaData[val]) {
+                document.getElementById('leaderName').innerText = areaData[val].leader;
+                document.getElementById('leaderPhone').href = "tel:" + areaData[val].phone;
+                res.classList.remove('hidden');
+            } else { res.classList.add('hidden'); }
         }
     </script>
-
 </body>
 </html>
 
